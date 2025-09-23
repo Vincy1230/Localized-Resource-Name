@@ -1,4 +1,3 @@
-#!py -3
 # -*- coding: utf-8 -*-
 
 """
@@ -79,7 +78,10 @@ try:
     SHCNE_UPDATEITEM = 0x00002000
     SHCNF_PATHW = 0x0005
     SHCNF_FLUSH = 0x1000
-    ctypes.windll.kernel32.SetFileAttributesW(ini_file_path, FILE_ATTRIBUTE_ARCHIVE)
+    ctypes.windll.kernel32.SetFileAttributesW(
+        ini_file_path,
+        FILE_ATTRIBUTE_ARCHIVE
+    )
     with open(ini_file_path, "w", encoding=SYS_ENCODING) as configfile:
         config.write(configfile, space_around_delimiters=False)
     ctypes.windll.kernel32.SetFileAttributesW(
